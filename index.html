@@ -20,8 +20,8 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
-            color: white;
+            background: white;
+            color: #2d5016;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -51,6 +51,72 @@
             width: auto;
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2d5016;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #2d5016;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f8e8;
+        }
+
+        .mobile-nav a:hover {
+            background: #2d5016;
+            color: white;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -58,7 +124,7 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #2d5016;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -67,7 +133,8 @@
         }
 
         .nav-links a:hover {
-            background: rgba(255,255,255,0.2);
+            background: #2d5016;
+            color: white;
             transform: translateY(-2px);
         }
 
@@ -397,6 +464,48 @@
             line-height: 1.6;
         }
 
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1500;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        .scroll-to-top.visible {
+            display: flex;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Modal Styles */
         .modal {
             display: none;
@@ -628,19 +737,35 @@
         }
 
         @media (max-width: 768px) {
+            .nav-container {
+                justify-content: center;
+                position: relative;
+            }
+
+            .hamburger {
+                position: absolute;
+                left: 2rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
             .nav-links {
                 display: none;
             }
-            
+
+            .hamburger {
+                display: flex;
+            }
+
             .banner-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .banner-text h1 {
                 font-size: 2.5rem;
             }
-            
+
             .banner-image {
                 font-size: 8rem;
             }
@@ -665,8 +790,13 @@
     <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMzAwIDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFzcyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjBhOTQyO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjMwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdhYzQ1NztzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI3MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM0YTdkNTk7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzJkNTAxNjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDx0ZXh0IHg9IjE1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InVybCgjZ3Jhc3MpIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMC41Ij4KICAgIEZVUiBTQ09PUEVSUwogIDwvdGV4dD4KICA8IS0tIEFkZCBzb21lIGdyYXNzIHRleHR1cmUgZWZmZWN0IC0tPgogIDx0ZXh0IHg9IjE1MSIgeT0iNTEiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InVybCgjZ3Jhc3MpIiBvcGFjaXR5PSIwLjciPgogICAgRlVSIFNDT09QRVJTCiAgPC90ZXh0Pgo8L3N2Zz4=" alt="Fur Scoopers Logo">
+                <img src="fur.scoopers.text.png" alt="Fur Scoopers Logo">
             </a>
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#services">Our Services</a></li>
@@ -678,6 +808,15 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                 </ul>
             </nav>
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#services" onclick="closeMobileMenu()">Our Services</a>
+                <a href="#facts" onclick="closeMobileMenu()">Facts</a>
+                <a href="#how-it-works" onclick="closeMobileMenu()">How it Works</a>
+                <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+                <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+                <a href="#about" onclick="closeMobileMenu()">About</a>
+                <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+            </div>
         </div>
     </header>
 
@@ -806,11 +945,11 @@
         <div class="pricing-note">
             <p><strong>Service Area:</strong> Pricing covers backyards under 0.5 acres, regardless of dog size or number of dogs. Front yard service available for a low flat fee add-on.</p>
         </div>
-        
+
         <div class="center-button" style="margin-top: 2rem;">
             <button class="cta-button" onclick="openModal()">Sign Up for Service</button>
         </div>
-        
+
         <div class="contact-section">
             <h3>Still Not Sure? Contact Us First</h3>
             <div class="contact-container">
@@ -901,6 +1040,11 @@
         <p>&copy; 2025 Fur Scoopers. All rights reserved. | furscoopers.com</p>
         <p>Professional dog waste removal with transparent, flat-rate pricing.</p>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
 
     <!-- Modal for Sign Up Form -->
     <div id="signupModal" class="modal">
@@ -1040,10 +1184,33 @@
     </div>
 
     <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
+
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             const icon = element.querySelector('span');
-            
+
             if (answer.classList.contains('active')) {
                 answer.classList.remove('active');
                 icon.textContent = '+';
@@ -1053,7 +1220,7 @@
                     openAnswer.classList.remove('active');
                     openAnswer.previousElementSibling.querySelector('span').textContent = '+';
                 });
-                
+
                 answer.classList.add('active');
                 icon.textContent = '−';
             }
@@ -1093,7 +1260,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const cardNumberInput = document.getElementById('cardNumber');
             const expiryInput = document.getElementById('expiry');
-            
+
             if (cardNumberInput) {
                 cardNumberInput.addEventListener('input', function(e) {
                     let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
@@ -1101,7 +1268,7 @@
                     e.target.value = formattedValue;
                 });
             }
-            
+
             if (expiryInput) {
                 expiryInput.addEventListener('input', function(e) {
                     let value = e.target.value.replace(/\D/g, '');
@@ -1127,15 +1294,25 @@
             });
         });
 
-        // Add scroll effect to header
+        // Add scroll effect to header and scroll-to-top button
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+
+            // Header background effect
             if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(45, 80, 22, 0.95) 0%, rgba(74, 124, 89, 0.95) 100%)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #2d5016 0%, #4a7c59 100%)';
+                header.style.background = 'white';
                 header.style.backdropFilter = 'none';
+            }
+
+            // Show/hide scroll to top button
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
             }
         });
     </script>
