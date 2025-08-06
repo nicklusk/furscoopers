@@ -1,5 +1,4 @@
-<a href="#" class="logo">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAABkCAYAAABwx8J9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABmASURBVHgB7Z0HlBTF1oarO+ecwyxZySAZyQkEFAQTKhgwYsCEr/eeOWfMOWfM+TmnZxYz5oBZMaMoigkVAyAZyTnn0P+tHhaWZXZ6unt6Z6fqO2fPmdnt6anq6ntvVd26t4oQERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERq7cLFhQVP0kcjRchLQB6EQd4gYaJsEaG6dkdlV+7+sLLr4P1tBEDqMq6bJi4DojsI2TZE6b6e4iQphjhqaXzO2E6+L5HQfGI5VDk/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -145,6 +144,20 @@
             display: flex;
             align-items: center;
             padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 1;
         }
 
         .banner-container {
@@ -152,14 +165,19 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            row-gap: 2rem;
+            column-gap: 14rem;
             align-items: center;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .banner-image {
             text-align: center;
-            font-size: 15rem;
+            width: 15rem;
+            height: 15rem;
+            margin: 0 auto;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
             animation: float 3s ease-in-out infinite;
         }
@@ -170,22 +188,23 @@
         }
 
         .banner-text {
-            color: #333;
+            color: white;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.8) 0%, rgba(74, 124, 89, 0.8) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
 
         .banner-text h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2d5016, #4a7c59);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
         }
 
         .banner-text p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.8;
+            color: white;
         }
 
         .cta-button {
@@ -767,7 +786,8 @@
             }
 
             .banner-image {
-                font-size: 8rem;
+                width: 8rem;
+                height: 8rem;
             }
 
             .contact-container {
@@ -821,8 +841,12 @@
     </header>
 
     <section class="banner">
+        <video autoplay muted loop class="banner-video">
+            <source src="AdobeStock_1608667214_Video_HD_Preview.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="banner-container">
-            <div class="banner-image">🐕</div>
+            <div class="banner-image"></div>
             <div class="banner-text">
                 <h1>Clean Yards, Happy Dogs</h1>
                 <p>Professional dog waste removal service with transparent, flat-rate pricing. No quotes, no surprises - just clean yards every time.</p>
