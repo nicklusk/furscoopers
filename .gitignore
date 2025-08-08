@@ -2,3 +2,5 @@ bak/
 test/
 *.mov
 *.m4v
+*.DS_Store
+.DS_Store
