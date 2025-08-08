@@ -1,3 +1,4 @@
-
-    *.mov
-    *.m4v
+bak/
+test/
+*.mov
+*.m4v
