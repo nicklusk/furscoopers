@@ -1,0 +1,376 @@
+/**
+ * Block Editor Styles for Furscoopers Theme
+ * Admin editor styles to match frontend appearance
+ */
+
+/* === Editor Container Styling === */
+.block-editor-writing-flow {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.editor-styles-wrapper {
+    background: #ffffff;
+    padding: 2rem;
+}
+
+/* === Color Palette Classes (Editor) === */
+.has-primary-green-color { color: #2d5016 !important; }
+.has-primary-green-background-color { background-color: #2d5016 !important; }
+
+.has-secondary-green-color { color: #4a7c59 !important; }
+.has-secondary-green-background-color { background-color: #4a7c59 !important; }
+
+.has-light-green-color { color: #7fb069 !important; }
+.has-light-green-background-color { background-color: #7fb069 !important; }
+
+.has-accent-green-color { color: #a7c957 !important; }
+.has-accent-green-background-color { background-color: #a7c957 !important; }
+
+.has-white-color { color: #ffffff !important; }
+.has-white-background-color { background-color: #ffffff !important; }
+
+.has-black-color { color: #333333 !important; }
+.has-black-background-color { background-color: #333333 !important; }
+
+/* === Font Size Classes (Editor) === */
+.has-small-font-size { font-size: 14px !important; }
+.has-regular-font-size { font-size: 16px !important; }
+.has-medium-font-size { font-size: 20px !important; }
+.has-large-font-size { font-size: 24px !important; }
+.has-extra-large-font-size { font-size: 32px !important; }
+
+/* === Typography === */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    color: #2d5016;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.editor-styles-wrapper h1 { 
+    font-size: 2.5rem; 
+    background: linear-gradient(135deg, #2d5016, #4a7c59);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.editor-styles-wrapper h2 { font-size: 2rem; }
+.editor-styles-wrapper h3 { font-size: 1.5rem; }
+.editor-styles-wrapper h4 { font-size: 1.3rem; }
+.editor-styles-wrapper h5 { font-size: 1.1rem; }
+.editor-styles-wrapper h6 { font-size: 1rem; }
+
+.editor-styles-wrapper p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* === Block Alignments (Editor) === */
+.editor-styles-wrapper .alignwide {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.editor-styles-wrapper .alignfull {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    max-width: none;
+    width: auto;
+}
+
+/* === Button Block (Editor) === */
+.editor-styles-wrapper .wp-block-button .wp-block-button__link {
+    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(45, 80, 22, 0.4);
+}
+
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
+    background: transparent;
+    border: 2px solid #2d5016;
+    color: #2d5016;
+    box-shadow: none;
+}
+
+/* === Quote Block (Editor) === */
+.editor-styles-wrapper .wp-block-quote {
+    border-left: 4px solid #4a7c59;
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+}
+
+.editor-styles-wrapper .wp-block-quote p {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #2d5016;
+}
+
+.editor-styles-wrapper .wp-block-quote cite {
+    color: #4a7c59;
+    font-size: 0.9rem;
+    font-style: normal;
+}
+
+.editor-styles-wrapper .wp-block-quote.is-large,
+.editor-styles-wrapper .wp-block-quote.is-style-large {
+    border: none;
+    padding: 2rem;
+    background: #f0f8e8;
+    border-radius: 15px;
+}
+
+/* === Cover Block (Editor) === */
+.editor-styles-wrapper .wp-block-cover {
+    border-radius: 15px;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.editor-styles-wrapper .wp-block-cover .wp-block-cover__inner-container {
+    padding: 3rem;
+}
+
+/* === Group Block (Editor) === */
+.editor-styles-wrapper .wp-block-group {
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.editor-styles-wrapper .wp-block-group.has-background {
+    padding: 2rem;
+}
+
+/* === Columns Block (Editor) === */
+.editor-styles-wrapper .wp-block-columns {
+    gap: 2rem;
+}
+
+.editor-styles-wrapper .wp-block-column {
+    padding: 1rem;
+}
+
+/* === Image Block (Editor) === */
+.editor-styles-wrapper .wp-block-image {
+    margin-bottom: 1.5rem;
+}
+
+.editor-styles-wrapper .wp-block-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+.editor-styles-wrapper .wp-block-image.is-style-rounded img {
+    border-radius: 50%;
+}
+
+/* === Gallery Block (Editor) === */
+.editor-styles-wrapper .wp-block-gallery {
+    gap: 1rem;
+}
+
+/* === List Block (Editor) === */
+.editor-styles-wrapper .wp-block-list {
+    padding-left: 1.5rem;
+}
+
+.editor-styles-wrapper .wp-block-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* === Table Block (Editor) === */
+.editor-styles-wrapper .wp-block-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.editor-styles-wrapper .wp-block-table th,
+.editor-styles-wrapper .wp-block-table td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+.editor-styles-wrapper .wp-block-table th {
+    background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+    color: white;
+    font-weight: bold;
+}
+
+.editor-styles-wrapper .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+    background-color: #f0f8e8;
+}
+
+/* === Separator Block (Editor) === */
+.editor-styles-wrapper .wp-block-separator {
+    border: none;
+    border-top: 2px solid #4a7c59;
+    margin: 2rem auto;
+    max-width: 100px;
+}
+
+.editor-styles-wrapper .wp-block-separator.is-style-wide {
+    max-width: 100%;
+}
+
+.editor-styles-wrapper .wp-block-separator.is-style-dots {
+    background: none;
+    border: none;
+    text-align: center;
+    max-width: none;
+}
+
+.editor-styles-wrapper .wp-block-separator.is-style-dots:before {
+    content: "···";
+    color: #4a7c59;
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+}
+
+/* === Media & Text Block (Editor) === */
+.editor-styles-wrapper .wp-block-media-text {
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+.editor-styles-wrapper .wp-block-media-text .wp-block-media-text__media {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.editor-styles-wrapper .wp-block-media-text .wp-block-media-text__content {
+    padding: 2rem;
+}
+
+/* === Drop Cap (Editor) === */
+.editor-styles-wrapper .wp-block-paragraph.has-drop-cap:not(:focus):first-letter {
+    float: left;
+    font-size: 8.4rem;
+    line-height: 0.68;
+    font-weight: bold;
+    margin: 0.05em 0.1em 0 0;
+    text-transform: uppercase;
+    font-style: normal;
+    color: #2d5016;
+}
+
+/* === Editor Specific Styles === */
+.editor-styles-wrapper .wp-block {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+    max-width: 1200px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+    max-width: none;
+}
+
+/* === Block Inserter Button Styling === */
+.block-editor-inserter__toggle {
+    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%) !important;
+    border-color: #2d5016 !important;
+}
+
+/* === Block Toolbar Styling === */
+.block-editor-block-toolbar {
+    border: 1px solid #4a7c59;
+}
+
+.block-editor-block-toolbar .components-toolbar-group {
+    border-color: #4a7c59;
+}
+
+/* === Color Palette in Editor === */
+.components-color-palette__item {
+    border-radius: 50%;
+}
+
+.components-color-palette__item.has-primary-green-background-color {
+    background-color: #2d5016 !important;
+}
+
+.components-color-palette__item.has-secondary-green-background-color {
+    background-color: #4a7c59 !important;
+}
+
+.components-color-palette__item.has-light-green-background-color {
+    background-color: #7fb069 !important;
+}
+
+.components-color-palette__item.has-accent-green-background-color {
+    background-color: #a7c957 !important;
+}
+
+/* === Editor Responsive Preview === */
+@media (max-width: 768px) {
+    .editor-styles-wrapper .wp-block-columns {
+        flex-direction: column;
+    }
+    
+    .editor-styles-wrapper .wp-block-media-text {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+    
+    .editor-styles-wrapper h1 { font-size: 2rem; }
+    .editor-styles-wrapper h2 { font-size: 1.75rem; }
+    .editor-styles-wrapper h3 { font-size: 1.5rem; }
+}
+
+/* === Block Pattern Styles === */
+.editor-styles-wrapper .wp-block-pattern {
+    border: 2px dashed #4a7c59;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(74, 124, 89, 0.05);
+}
+
+/* === Custom Block Styles === */
+.editor-styles-wrapper .is-style-furscoopers-card {
+    background: #f0f8e8;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.editor-styles-wrapper .is-style-furscoopers-gradient {
+    background: linear-gradient(135deg, #7fb069 0%, #a7c957 50%, #6a994e 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.editor-styles-wrapper .is-style-furscoopers-highlight {
+    border-left: 5px solid #4a7c59;
+    background: #f0f8e8;
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+}

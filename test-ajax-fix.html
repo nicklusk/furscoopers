@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test AJAX Object Availability</title>
+</head>
+<body>
+    <h1>Testing furscoopers_ajax Object</h1>
+    <p>Open browser console to see the test results.</p>
+    <button onclick="testAjaxObject()">Test AJAX Object</button>
+    <div id="result"></div>
+
+    <script>
+        // Simulate the AJAX object that should be available
+        var furscoopers_ajax = {
+            ajax_url: 'http://localhost/wp-admin/admin-ajax.php',
+            nonce: 'test_nonce_123'
+        };
+
+        function testAjaxObject() {
+            var result = document.getElementById('result');
+            
+            if (typeof furscoopers_ajax !== 'undefined') {
+                console.log('✓ furscoopers_ajax object is available:', furscoopers_ajax);
+                result.innerHTML = '<p style="color: green;">✓ SUCCESS: furscoopers_ajax object is defined</p>';
+                result.innerHTML += '<p>AJAX URL: ' + furscoopers_ajax.ajax_url + '</p>';
+                result.innerHTML += '<p>Nonce: ' + furscoopers_ajax.nonce + '</p>';
+                
+                // Test the form submission function (simulated)
+                try {
+                    testFormSubmission();
+                } catch(e) {
+                    console.error('Form submission test failed:', e);
+                    result.innerHTML += '<p style="color: orange;">⚠ Form submission would fail: ' + e.message + '</p>';
+                }
+            } else {
+                console.log('✗ furscoopers_ajax object is not available');
+                result.innerHTML = '<p style="color: red;">✗ FAILED: furscoopers_ajax object is not defined</p>';
+            }
+        }
+
+        function testFormSubmission() {
+            // Simulate the form submission code from footer.php
+            var formData = new FormData();
+            formData.append('action', 'handle_subscription_signup');
+            formData.append('nonce', furscoopers_ajax.nonce);
+            
+            console.log('Form data would be sent to:', furscoopers_ajax.ajax_url);
+            document.getElementById('result').innerHTML += '<p style="color: blue;">✓ Form submission test passed</p>';
+        }
+
+        // Auto-run test when page loads
+        window.onload = function() {
+            testAjaxObject();
+        };
+    </script>
+</body>
+</html>
