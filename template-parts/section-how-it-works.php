@@ -22,5 +22,6 @@
                     <p>Come home to a fresh, clean backyard ready for your family and pets to enjoy safely.</p>
                 </div>
             </div>
-            <p style="text-align: center; font-size: 1.2rem; color: #667eea; font-weight: bold;">Fair pricing for everyone - no negotiating, no quotes, just honest flat rates!</p>
+            <p style="text-align: center; font-size: 1.2rem; color: #667eea; font-weight: bold;">Fair pricing for everyone - no quotes, just honest flat rates!</p>
+            <p style="text-align: center; font-size: 1.2rem; color: #667eea; font-weight: bold;">(Small dogs and small yards are open to negotiation, just give us a call to discuss your specific needs!)</p>
         </section>

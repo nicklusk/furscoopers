@@ -47,14 +47,15 @@
                 <p><strong>Service Area:</strong> Pricing covers backyards under 0.5 acres, regardless of dog size or number of dogs. Front yard service available for a low flat fee add-on.</p>
             </div>
 
-            <div class="center-button" style="margin-top: 2rem;">
+            <!-- <div class="center-button" style="margin-top: 2rem;">
                 <button class="cta-button" onclick="openModal()">Sign Up for Service</button>
-            </div>
+            </div> -->
+            <h2>Pay with Venmo, Apple Pay, and other digital payment methods!</h2>
 
 
 			
             <div class="contact-section">
-                <h3>Still Not Sure? Contact Us First</h3>
+                <h3>Contact us to get signed up!</h3>
                 <div class="contact-container">
                     <div class="contact-form">
                         <h4>Send Us a Message</h4>

@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fur Scoopers - Professional Dog Waste Removal Service | Transparent Flat-Rate Pricing</title>
-
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Professional dog waste removal service with transparent flat-rate pricing. Weekly cleanup starting at $80/month. No quotes, no surprises - serving residential areas with reliable, eco-friendly waste removal and deodorization services.">
     <meta name="keywords" content="dog waste removal, pooper scooper service, pet waste cleanup, yard cleaning, dog poop removal, flat rate pricing, weekly service, pet waste management, backyard cleaning, deodorization">
     <meta name="author" content="Fur Scoopers">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://furscoopers.com/">
-
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://furscoopers.com/">
@@ -26,7 +26,7 @@
     <meta property="business:contact_data:region" content="NC">
     <meta property="business:contact_data:country_name" content="USA">
     <meta property="business:contact_data:phone_number" content="(919) 537-6714">
-
+    
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://furscoopers.com/">
@@ -34,12 +34,12 @@
     <meta name="twitter:description" content="Professional dog waste removal with transparent flat-rate pricing. Weekly service starting at $80/month. Clean yards, happy dogs, fair pricing for everyone.">
     <meta name="twitter:image" content="https://furscoopers.com/fur-scoopers-social-image.jpg">
     <meta name="twitter:image:alt" content="Fur Scoopers professional dog waste removal service">
-
+    
     <!-- Additional Social Media Tags -->
     <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID">
     <meta name="twitter:site" content="@furscoopers">
     <meta name="twitter:creator" content="@furscoopers">
-
+    
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,18 +48,18 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#4a7c59">
     <meta name="msapplication-TileColor" content="#4a7c59">
-
+    
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <!-- Additional Meta Tags -->
     <meta name="format-detection" content="telephone=yes">
     <meta name="geo.region" content="US-NC">
     <meta name="geo.placename" content="Rolesville, North Carolina">
     <meta name="geo.position" content="35.9237;-78.4578">
     <meta name="ICBM" content="35.9237, -78.4578">
-
+    
     <!-- Business Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
@@ -103,7 +103,7 @@
       ]
     }
     </script>
-
+    
     <!-- Service Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
@@ -170,7 +170,7 @@
       }
     }
     </script>
-
+    
     <!-- FAQ Schema.org JSON-LD -->
     <script type="application/ld+json">
     {

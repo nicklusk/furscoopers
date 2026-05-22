@@ -1,0 +1,1365 @@
+/*
+Theme Name: Fur Scoopers
+Theme URI: https://furscoopers.com
+Author: Fur Scoopers
+Author URI: https://furscoopers.com
+Description: Custom one-page WordPress theme for Fur Scoopers with editable sections (Pages) and a Testimonials CPT.
+Version: 1.0.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: furscoopers
+*/
+
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            background: white;
+            color: #2d5016;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            gap: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2d5016;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #2d5016;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f8e8;
+        }
+
+        .mobile-nav a:hover {
+            background: #2d5016;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            white-space: nowrap
+        }
+
+        .nav-links a {
+            color: #2d5016;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            white-space: nowrap
+        }
+
+        .nav-links a:hover {
+            background: #2d5016;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .banner {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #7fb069 0%, #a7c957 50%, #6a994e 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 1;
+        }
+
+        .banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 2rem;
+            column-gap: 14rem;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-image {
+            text-align: center;
+            width: 15rem;
+            height: 15rem;
+            margin: 0 auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .banner-text {
+            color: white;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.5) 0%, rgba(74, 124, 89, 0.2) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .banner-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .banner-text p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(45, 80, 22, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(45, 80, 22, 0.6);
+        }
+
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #4a7c59;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d5016;
+        }
+
+        .service-card::before {
+            content: "💩";
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .service-card:nth-child(2)::before {
+            content: "🌿";
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .fact-card {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: perspective(1000px) rotateY(-5deg) translateY(-5px);
+        }
+
+        .fact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #a7c957, #7fb069);
+            border-radius: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+        }
+
+        .step-number {
+            background: #2d5016;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .pricing-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            padding: 0.5rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+        }
+
+        .pricing-table tr:hover {
+            background: #f0f8e8;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2d5016;
+            font-size: 1.2rem;
+        }
+
+        .pricing-note {
+            background: linear-gradient(135deg, #7fb069, #4a7c59);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-section {
+            background: #f0f8e8;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-size: 2rem;
+            color: #2d5016;
+            margin-bottom: 2rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form h4, .contact-phone h4 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #d4e6c7;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #4a7c59;
+            box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+        }
+
+        .contact-submit-btn {
+            background: linear-gradient(135deg, #7fb069, #4a7c59);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(127, 176, 105, 0.4);
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .phone-icon {
+            font-size: 2rem;
+        }
+
+        .phone-number a {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2d5016;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .phone-number a:hover {
+            color: #4a7c59;
+            transform: scale(1.05);
+        }
+
+        .contact-phone p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1500;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        .scroll-to-top.visible {
+            display: flex;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #d4e6c7;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #4a7c59;
+            box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .submit-modal-btn {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74, 124, 89, 0.4);
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #4a7c59;
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #4a7c59;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2d5016;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .center-button {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+/* === WooCommerce Pages Styling === */
+.site-main {
+    margin-top: 80px !important; /* Account for fixed header */
+    min-height: calc(100vh - 80px);
+}
+
+/* Additional specific rules for checkout and cart pages */
+body.woocommerce-checkout .site-main,
+body.woocommerce-cart .site-main,
+body.woocommerce-account .site-main,
+body.woocommerce .site-main {
+    margin-top: 80px !important;
+    padding-top: 2rem !important;
+}
+
+/* Ensure page content doesn't overlap with header */
+body.woocommerce-checkout,
+body.woocommerce-cart,
+body.woocommerce-account,
+body.woocommerce {
+    padding-top: 80px !important;
+}
+
+/* Reset body padding for WooCommerce pages specifically */
+body.woocommerce-checkout .page-content,
+body.woocommerce-cart .page-content,
+body.woocommerce-account .page-content,
+body.woocommerce .page-content {
+    padding: 2rem 0;
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* === WooCommerce Form Styling === */
+.woocommerce form,
+.woocommerce-page form {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* === Checkout Layout Fix === */
+.woocommerce-checkout .col2-set {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr !important; /* Billing 60%, Order 40% */
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.woocommerce-checkout .col-1,
+.woocommerce-checkout .col-2 {
+    margin: 0 !important;
+    padding: 2rem;
+    background: #fafcfa;
+    border-radius: 12px;
+    border: 1px solid #e8f4e8;
+}
+
+.woocommerce-checkout #order_review {
+    margin: 0 !important;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e8f4e8;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.woocommerce-checkout #payment {
+    margin-top: 2rem;
+}
+
+.woocommerce-checkout .checkout_coupon {
+    grid-column: span 2; /* Stretch across both columns */
+}
+
+/* Section Headers */
+.woocommerce h3,
+.woocommerce-page h3 {
+    color: #2d5016;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #4a7c59;
+    position: relative;
+}
+
+/* Form Row Layout */
+.woocommerce .form-row,
+.woocommerce-page .form-row {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.woocommerce .form-row-wide,
+.woocommerce-page .form-row-wide {
+    width: 100%;
+    clear: both;
+}
+
+.woocommerce .form-row-first,
+.woocommerce-page .form-row-first {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+}
+
+.woocommerce .form-row-last,
+.woocommerce-page .form-row-last {
+    width: 48%;
+    float: right;
+}
+
+.woocommerce .form-row::after,
+.woocommerce-page .form-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Form Labels */
+.woocommerce .form-row label,
+.woocommerce-page .form-row label {
+    display: block;
+    font-weight: 600;
+    color: #2d5016;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.woocommerce .form-row label .required,
+.woocommerce-page .form-row label .required {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+/* Form Input Fields */
+.woocommerce input[type="text"],
+.woocommerce input[type="email"],
+.woocommerce input[type="tel"],
+.woocommerce input[type="password"],
+.woocommerce input[type="number"],
+.woocommerce select,
+.woocommerce textarea,
+.woocommerce-page input[type="text"],
+.woocommerce-page input[type="email"],
+.woocommerce-page input[type="tel"],
+.woocommerce-page input[type="password"],
+.woocommerce-page input[type="number"],
+.woocommerce-page select,
+.woocommerce-page textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #d4e6c7;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* Focus States */
+.woocommerce input:focus,
+.woocommerce select:focus,
+.woocommerce textarea:focus,
+.woocommerce-page input:focus,
+.woocommerce-page select:focus,
+.woocommerce-page textarea:focus {
+    outline: none;
+    border-color: #4a7c59;
+    box-shadow: 0 0 0 4px rgba(74, 124, 89, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Select Styling */
+.woocommerce select,
+.woocommerce-page select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a7c59' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 3rem;
+}
+
+/* Textarea */
+.woocommerce textarea,
+.woocommerce-page textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Buttons */
+.woocommerce button,
+.woocommerce input[type="submit"],
+.woocommerce .button,
+.woocommerce-page button,
+.woocommerce-page input[type="submit"],
+.woocommerce-page .button {
+    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+    min-width: 220px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/*.woocommerce button::before,*/
+/*.woocommerce input[type="submit"]::before,*/
+/*.woocommerce .button::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: -100%;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: linear-gradient(135deg, #4a7c59 0%, #7fb069 100%);*/
+/*    transition: left 0.3s ease;*/
+/*    z-index: -1;*/
+/*}*/
+
+.woocommerce button:hover,
+.woocommerce input[type="submit"]:hover,
+.woocommerce .button:hover,
+.woocommerce-page button:hover,
+.woocommerce-page input[type="submit"]:hover,
+.woocommerce-page .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+}
+
+.woocommerce button:hover::before,
+.woocommerce input[type="submit"]:hover::before,
+.woocommerce .button:hover::before {
+    left: 0;
+}
+
+/* Primary checkout button */
+.woocommerce #place_order,
+.woocommerce-page #place_order {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+}
+
+/* === Order Review & Table Styling === */
+.woocommerce #order_review,
+.woocommerce-page #order_review {
+    background: linear-gradient(135deg, #fafcfa 0%, #f0f8e8 100%);
+    border: 2px solid #e8f4e8;
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.woocommerce table.shop_table,
+.woocommerce-page table.shop_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td,
+.woocommerce-page table.shop_table th,
+.woocommerce-page table.shop_table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e8f4e8;
+}
+
+.woocommerce table.shop_table th,
+.woocommerce-page table.shop_table th {
+    background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.woocommerce table.shop_table tbody tr:hover {
+    background: #fafcfa;
+}
+
+.woocommerce table.shop_table .order-total {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #2d5016;
+    background: #f0f8e8;
+}
+
+/* === Payment Methods === */
+.woocommerce ul.payment_methods,
+.woocommerce-page ul.payment_methods {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.woocommerce ul.payment_methods li {
+    background: white;
+    border: 2px solid #e8f4e8;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.woocommerce ul.payment_methods li:hover {
+    border-color: #4a7c59;
+    background: #fafcfa;
+    box-shadow: 0 4px 15px rgba(74, 124, 89, 0.15);
+    transform: translateY(-2px);
+}
+
+.woocommerce ul.payment_methods li.wc_payment_method input[type="radio"]:checked + label {
+    color: #2d5016;
+    font-weight: bold;
+}
+
+.woocommerce ul.payment_methods li input[type="radio"] {
+    margin-right: 1rem;
+    transform: scale(1.2);
+    accent-color: #4a7c59;
+}
+
+.woocommerce ul.payment_methods li label {
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Payment method descriptions */
+.woocommerce .payment_box {
+    background: #f0f8e8;
+    border: 1px solid #d4e6c7;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+/* Notices */
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+    background: #f0f8e8;
+    border-left: 4px solid #4a7c59;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.woocommerce-error {
+    background: #ffeaea;
+    border-left-color: #dc3232;
+    color: #721c24;
+}
+
+.woocommerce-info {
+    background: #e8f4f8;
+    border-left-color: #0073aa;
+    color: #0073aa;
+}
+
+/* Cart Styling */
+.woocommerce-cart .cart-collaterals {
+    background: #f0f8e8;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.woocommerce-cart .cart_totals h2 {
+    color: #2d5016;
+    margin-bottom: 1rem;
+}
+
+/* === Mobile Responsiveness === */
+@media (max-width: 992px) {
+    .woocommerce-checkout .col2-set {
+        grid-template-columns: 1fr;
+    }
+    .woocommerce-checkout .col-1,
+    .woocommerce-checkout .col-2 {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-main {
+        margin-top: 60px;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+    .woocommerce .col2-set {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .woocommerce .form-row-first,
+    .woocommerce .form-row-last {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    .woocommerce button,
+    .woocommerce input[type="submit"],
+    .woocommerce .button {
+        width: 100%;
+        min-width: auto;
+        padding: 1.5rem 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .woocommerce table.shop_table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .woocommerce table.shop_table th,
+    .woocommerce table.shop_table td {
+        padding: 0.75rem;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .woocommerce .col-1,
+    .woocommerce .col-2 {
+        padding: 1rem;
+    }
+    .woocommerce form {
+        padding: 1rem;
+    }
+    .woocommerce h3 {
+        font-size: 1.3rem;
+    }
+    .woocommerce input,
+    .woocommerce select,
+    .woocommerce textarea {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+    .woocommerce table.shop_table th,
+    .woocommerce table.shop_table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+/* === Clean WooCommerce Checkout Layout === */
+.woocommerce-checkout form.checkout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left Column Container: Billing + Additional Info */
+.woocommerce-checkout .col2-set {
+    display: block;
+    grid-column: 1;
+}
+
+.woocommerce-checkout .col-1,
+.woocommerce-checkout .col-2 {
+    width: 100%;
+    float: none;
+    margin: 0 0 2rem 0;
+    padding: 2rem;
+    background: #fafcfa;
+    border-radius: 12px;
+    border: 1px solid #e8f4e8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Right Column: Order Review + Payment */
+.woocommerce-checkout #order_review {
+    grid-column: 2;
+    margin: 0;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e8f4e8;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.woocommerce-checkout #payment {
+    margin-top: 2rem;
+}
+
+/* Fix Form Row Layout Issues */
+.woocommerce-checkout .form-row-first,
+.woocommerce-checkout .form-row-last {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .form-row-last {
+    float: right;
+    margin-right: 0;
+}
+
+.woocommerce-checkout .form-row-wide {
+    width: 100%;
+    clear: both;
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .form-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Ensure labels and inputs display properly */
+.woocommerce-checkout .form-row label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d5016;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.woocommerce-checkout .form-row input,
+.woocommerce-checkout .form-row select,
+.woocommerce-checkout .form-row textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive: stack columns on mobile */
+@media (max-width: 992px) {
+    .woocommerce-checkout form.checkout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .woocommerce-checkout #order_review {
+        grid-column: 1;
+        margin-top: 2rem;
+    }
+    
+    .woocommerce-checkout .form-row-first,
+    .woocommerce-checkout .form-row-last {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+    }
+}
+
+.product-name img{
+    display: none !important;
+}
+.product-quantity{
+    display: none !important;
+    visibility: hidden;
+}
