@@ -50,7 +50,7 @@
             <!-- <div class="center-button" style="margin-top: 2rem;">
                 <button class="cta-button" onclick="openModal()">Sign Up for Service</button>
             </div> -->
-            <h2>Pay with Venmo, Apple Pay, and other digital payment methods!</h2>
+            <h2 style="margin-top: 3rem;">Pay with Venmo, Apple Pay, and other digital payment methods!</h2>
 
 
 			
